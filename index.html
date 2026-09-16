@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Venga Mano! Estudie Conmigo</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="login-screen" class="screen active">
+  <div class="login-bg-canvas" id="login-3d-container"></div>
+  <div class="login-card">
+    <img src="assets/portada.png" alt="Mascota" class="login-logo">
+    <h1>¡Venga Mano!</h1><h2>Estudie Conmigo</h2>
+    <p class="login-sub">Cartilla Ambiental · Colegio Luis Carlos Galán Sarmiento</p>
+    <div class="login-tabs">
+      <button class="tab-btn active" data-tab="entrar">Entrar</button>
+      <button class="tab-btn" data-tab="registrar">Crear cuenta</button>
+    </div>
+    <form id="form-entrar" class="login-form active">
+      <label>Usuario</label><input type="text" id="login-user" placeholder="Tu nombre de usuario" required>
+      <label>Contraseña</label><input type="password" id="login-pass" placeholder="Tu contraseña" required>
+      <button type="submit" class="btn-primary">Ingresar</button>
+      <p class="form-msg" id="login-msg"></p>
+    </form>
+    <form id="form-registrar" class="login-form">
+      <label>Nombre completo</label><input type="text" id="reg-name" placeholder="Nombre y apellido" required>
+      <label>Grado</label>
+      <select id="reg-grado" required>
+        <option value="">Selecciona tu grado</option>
+        <option>8°</option><option>9°</option><option>10°</option><option>11°</option><option>Docente</option>
+      </select>
+      <label>Usuario</label><input type="text" id="reg-user" placeholder="Elige un nombre de usuario" required>
+      <label>Contraseña</label><input type="password" id="reg-pass" placeholder="Crea una contraseña" required>
+      <button type="submit" class="btn-primary">Crear cuenta</button>
+      <p class="form-msg" id="reg-msg"></p>
+    </form>
+    <button id="btn-invitado" class="btn-ghost">Entrar como invitado</button>
+  </div>
+</div>
+
+<div id="app-screen" class="screen">
+  <header class="topbar">
+    <div class="topbar-left">
+      <img src="assets/portada.png" class="topbar-logo" alt="logo">
+      <span class="topbar-title">¡Venga Mano! <small>Estudie Conmigo</small></span>
+    </div>
+    <div class="topbar-right">
+      <div class="xp-pill">⭐ <span id="xp-count">0</span> pts</div>
+      <div class="user-pill" id="user-pill">Invitado</div>
+      <button id="btn-logout" class="btn-small">Salir</button>
+    </div>
+  </header>
+  <div class="layout">
+    <nav class="sidebar">
+      <button class="nav-item active" data-module="inicio">🏠 Inicio</button>
+      <button class="nav-item" data-module="giron">🏛️ I. Girón</button>
+      <button class="nav-item" data-module="ambiental">🌱 II. Proyecto Ambiental</button>
+      <button class="nav-item" data-module="riesgos">⚠️ III. Riesgos Físicos</button>
+      <button class="nav-item" data-module="vial">🚦 IV. Seguridad Vial</button>
+      <button class="nav-item" data-module="saludable">🥗 V. Vida Saludable</button>
+      <button class="nav-item" data-module="emprendimiento">💡 VI. Emprendimiento</button>
+      <button class="nav-item" data-module="mapa3d">🌍 Mapa 3D de Girón</button>
+      <button class="nav-item" data-module="progreso">📊 Mi Progreso</button>
+    </nav>
+    <main class="content" id="content"></main>
+  </div>
+</div>
+
+<!-- Modal foto -->
+<div id="lugar-modal" class="lugar-modal-overlay" style="display:none;">
+  <div class="lugar-modal-box">
+    <button class="lugar-modal-close" id="lugar-modal-close">✕</button>
+    <img id="lugar-modal-img" src="" alt="" class="lugar-modal-foto">
+    <div class="lugar-modal-body">
+      <h3 id="lugar-modal-titulo"></h3>
+      <p id="lugar-modal-desc"></p>
+    </div>
+  </div>
+</div>
+<div id="toast" class="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/three-scenes.js"></script>
+<script src="js/modules.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
